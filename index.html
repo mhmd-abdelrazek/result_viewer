@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>نتيجة الطالب</title>
+     <link rel="stylesheet" href="style.css">
+     <!-- Chart.js CDN -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+     <!-- Loading Screen -->
+     <div id="loading-screen">
+          <div class="spinner"></div>
+          <p id="loading-text" class="text-muted">جاري تحميل البيانات...</p>
+     </div>
+
+     <!-- Error Screen -->
+     <div id="error-screen" style="display: none;">
+          <div class="error-message">
+               <h2 id="error-title">خطأ</h2>
+               <p id="error-msg" class="text-muted">حدث خطأ ما.</p>
+               <button onclick="window.location.reload()"
+                    style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--accent-color); border: none; border-radius: 6px; color: white; cursor: pointer;">إعادة
+                    المحاولة</button>
+          </div>
+     </div>
+
+     <div class="container" id="app">
+          <header>
+               <div id="header-rank" class="header-rank-container">
+                    <!-- Rank Injected Here -->
+               </div>
+               <h1 id="student-name">...</h1>
+               <div class="student-badge" id="student-gender">
+                    <!-- Injected via JS -->
+               </div>
+          </header>
+
+          <!-- Key Stats -->
+          <div class="stats-grid">
+               <!-- Rank removed from here as it is now in header -->
+
+               <div id="stat-degree" style="text-align: center; margin-bottom: 2rem;">
+                    <div class="stat-label">المجموع الكلي</div>
+                    <div class="stat-value" id="val-degree">-- / --</div>
+               </div>
+
+               <div class="stat-card" id="stat-accuracy">
+                    <div class="stat-label">النسبة المئوية</div>
+                    <div class="stat-value" id="val-accuracy">--%</div>
+               </div>
+          </div>
+
+          <!-- Visualization -->
+          <div class="charts-section">
+               <h2>نظرة عامة على الأداء</h2>
+               <div style="position: relative; height: 300px; width: 100%">
+                    <canvas id="scoreChart"></canvas>
+               </div>
+          </div>
+
+          <!-- Detailed List -->
+          <section>
+               <h2>تفاصيل المواد</h2>
+               <div class="results-list" id="subjects-list">
+                    <!-- Items injected via JS -->
+               </div>
+          </section>
+     </div>
+
+     <!-- Scripts -->
+     <script src="js/encryption-utils.js"></script>
+     <script src="js/app.js"></script>
+</body>
+
+</html>
